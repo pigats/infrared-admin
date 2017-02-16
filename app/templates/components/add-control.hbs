@@ -14,5 +14,18 @@
         {{/if}}
       {{/each}}
     </select>
+    {{#if (eq control.typeId '1')}}
+      <ul>
+        <li>
+          options
+          <button {{action 'addSelectOption'}}>Add</button>
+          <ul>
+            {{#each selectOptions as |selectOption|}}
+              <li>{{input value=selectOption.value submit=(action 'saveSelectOption')}}</li>
+            {{/each}} 
+          </ul>
+        </li>
+      </ul>
+    {{/if}}
   </li>
 </ul>
