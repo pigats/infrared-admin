@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
     }),
 
     init() {
-        this._super();
+        this._super(...arguments);
         this._addControl();
     },
 
@@ -39,6 +39,11 @@ export default Ember.Controller.extend({
 
         addControl() {
             this._addControl();
+        },
+
+        destroyControl(control) {
+            this.set('controls', this.get('controls').filter(el => el.control.id !== control.id));
+            control.destroyRecord().then(() => this.get('model').save());
         }
     }
 });
