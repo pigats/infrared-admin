@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     },
 
     setupController(controller, model) {
-        controller.set('model', model);
+        this._super(...arguments);
         model.get('controls').then((controls) => {
             controller.set('controls', controls.map(control => ({
                 control: control,

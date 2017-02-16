@@ -2,8 +2,26 @@
 
 <h1>Device types</h1>
 
-<ul>
+{{#link-to 'device-types.new'}}New device type{{/link-to}}
+
+<table>
+  <thead>
+    <tr>
+      <th>Device type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
   {{#each model as |type|}}
-    <li>{{#link-to 'device-types.show' type}}{{type.name}}{{/link-to}}</li>
+    <tr>
+      <td>
+        {{type.name}}
+      </td>
+      <td>
+        {{#link-to 'device-types.edit' type}}Edit{{/link-to}}
+        <a href="#" {{action 'destroy' type}}>Delete</a>
+      </td>
+    </tr>
   {{/each}}
-</ul>
+  </tbody>
+</table>
