@@ -25,14 +25,16 @@ export default Ember.Controller.extend({
             this.get('controls').forEach(control =>
                 this.get('store').findRecord('controlType', control.typeId).then(controlType => {
                     control.control.set('type', controlType);
-                    saveControls.push(control.control.save().then(() => {}, error => console.error('ops', error.errors)));
+                    saveControls.push(control.control.save());
                 })
             );
 
             Ember.RSVP.all(saveControls).then(() => {
                 this.set('model.controls', this.get('controls').map(control => control.control));
                 this.get('model').save();
-            });
+            }).then(() =>
+                this.transitionToRoute('device-types.index')
+            );
         },
 
         addControl() {
