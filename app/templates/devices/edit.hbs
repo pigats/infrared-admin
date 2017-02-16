@@ -1,0 +1,27 @@
+<h1>Edit device</h1>
+
+<form {{action 'update' on='submit'}}>
+  <ul>
+    <li>
+      <label for="name">name</label>
+      {{input name='name' value=model.device.name placeholder='livingroom stb'}}
+    </li>
+    <li>
+      <label for="type">type</label>
+      <select onchange={{action (mut typeId) value="target.value"}}>
+        {{#each model.types as |type|}}
+          {{#if (eq type.id model.device.type.id)}}
+            <option value="{{type.id}}" selected> {{type.name}} </option>
+          {{else}}
+            <option value="{{type.id}}"> {{type.name}} </option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </li>
+    <li>
+      <label for="ip">ip</label>
+      {{input name='ip' value=model.device.ip placeholder='54.245.240.96'}}
+    </li>
+  </ul>
+  <input type="submit" value="Update" />
+</form>
