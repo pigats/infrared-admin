@@ -1,0 +1,11 @@
+{{outlet}}
+
+<h1>{{model.name}}</h1>
+
+<ul>
+  {{#each model.controls as |control|}}
+    <li>{{control.name}}</li>
+  {{/each}}
+</ul>
+
+{{#link-to 'device-types.edit' model}}Edit{{/link-to}}

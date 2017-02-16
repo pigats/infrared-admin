@@ -1,0 +1,9 @@
+{{outlet}}
+
+<h1>Device types</h1>
+
+<ul>
+  {{#each model as |type|}}
+    <li>{{#link-to 'device-types.show' type}}{{type.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
