@@ -1,16 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    controls: [],
     control: Ember.computed('controls', function() {
         let controls = this.get('controls');
         return controls[controls.length - 1];
     }),
-
-    init() {
-        this._super(...arguments);
-        this._addControl();
-    },
 
     _addControl() {
         this.get('controls').pushObject({
