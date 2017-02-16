@@ -7,6 +7,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('devices', function() {
+    this.route('new');
+    this.route('edit', { path: ':device_id/edit' });
+    this.route('settings', { path: ':device_id/settings' }, function() {
+        this.route('edit');
+    });
+  });
+
   this.route('device-types', function() {
     this.route('new');
     this.route('show', { path: ':deviceType_id' });

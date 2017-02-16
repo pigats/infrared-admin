@@ -1,0 +1,30 @@
+<h1>Devices</h1>
+
+{{#link-to 'devices.new'}}New device{{/link-to}}
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |device|}}
+    <tr>
+      <td>
+        {{device.name}}
+      </td>
+      <td>
+        {{device.type.name}}
+      </td>
+      <td>
+        {{#link-to 'devices.settings.edit' device}}Settings{{/link-to}}
+        {{#link-to 'devices.edit' device}}Edit{{/link-to}}
+        <a href="#" {{action 'destroy' device}}>Delete</a>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
