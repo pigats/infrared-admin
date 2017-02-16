@@ -7,8 +7,7 @@ export default Ember.Component.extend({
         return selectOptions[selectOptions.length - 1];
     }),
 
-    init() {
-        this._super();
+    didReceiveAttrs() {
         this.set('controlTypes', this.get('store').findAll('controlType'));
         this.set('selectOptions', this.get('control.control.values'));
     },
@@ -24,6 +23,12 @@ export default Ember.Component.extend({
             this.get('control.control.values').pushObject({
                 value: params
             });
+        },
+
+        removeControl(control) {
+            if(window.confirm(`Are you sure you want to delete ${control.get('name')}?`)) {
+                this.get('onRemove')(control);
+            }
         }
 
     }

@@ -1,0 +1,75 @@
+form
+  margin: 18px 0
+
+form ul
+  list-style-type: none
+
+form ul
+  padding-left: 0
+
+.controls
+  padding-left: 6em
+
+.control
+  padding-bottom: 17px
+  border-bottom: 1px dashed #555
+  margin-bottom: 18px
+
+.options 
+  margin-top: 18px
+
+  ul
+    margin-top: 18px
+    padding-left: 6em
+
+label
+  display: inline-block
+  width: 6em
+  margin: 18px 0 9px
+
+
+  &:after
+    content: ':'
+
+input[type=text], input[type=range], select
+  min-width: 15em
+  padding: 9px 10px
+  box-sizing: border-box
+  outline: none !important
+  cursor: pointer
+  font-size: 1em
+
+input[type=text]
+  border: 1px solid #b3b3b3
+  border-radius: 5px
+
+input[type=range]
+  padding: 0
+
+$button-color: #555; 
+
+input[type=submit], button, .button
+  box-sizing: border-box
+  padding: 9px 10px
+  font-size: .75em
+  text-align: center
+  min-width: 10em
+
+  color: white !important
+  border: 1px solid lighten($button-color, 5%)
+  border-color: white !important
+  display: inline-block
+  border-radius: 5px
+  background: $button-color
+  text-decoration: none
+
+  -moz-appearance: none
+  -webkit-appearance: none
+  outline: none
+
+
+  &:active
+    box-shadow: 0 4px 4px darken($button-color, 5%) inset
+
+  &:hover
+    background: lighten($button-color, 5%)

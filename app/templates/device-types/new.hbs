@@ -1,25 +1,25 @@
-{{outlet}}
-
-<h1>Create device type</h1>
+<h1>New device type</h1>
 
 <form {{action 'create' on='submit'}}>
   <ul>
     <li>
       <label for="name">name</label>
-      {{input name='name' value=model.name}}
+      {{input name='name' value=model.name placeholder='Apple TV'}}
     </li>
     <li>
       controls
-      <button {{action 'addControl'}}>Add</button>
-      <ul>
+      <ul class="controls">
         {{#each controls as |control|}}
           <li>
-            {{add-control control=control}}
+            {{add-control onRemove=(action 'destroyControl') control=control}}
           </li>
         {{/each}}
+        <li>
+          <button {{action 'addControl'}}>Add control</button>
+        </li>
       </ul>
     </li>
   </ul>
-  <input type="submit" />
+  <input type="submit" value="Create"/>
   {{#link-to 'device-types.index'}}Back to device types{{/link-to}}
 </form>

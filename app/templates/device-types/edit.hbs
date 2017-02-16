@@ -1,5 +1,4 @@
-{{outlet}}
-<h1>Create device type</h1>
+<h1>Edit device type</h1>
 
 <form {{action 'update' on='submit'}}>
   <ul>
@@ -9,16 +8,18 @@
     </li>
     <li>
       controls
-      <button {{action 'addControl'}}>Add</button>
-      <ul>
+      <ul class="controls">
         {{#each controls as |control|}}
           <li>
-            {{add-control control=control}}
+            {{add-control onRemove=(action 'destroyControl') control=control}}
           </li>
         {{/each}}
+        <li>
+          <button {{action 'addControl'}}>Add control</button>
+        </li>
       </ul>
     </li>
   </ul>
-  <input type="submit" />
+  <input type="submit" value="Update"/>
   {{#link-to 'device-types.index'}}Back to device types{{/link-to}}
 </form>

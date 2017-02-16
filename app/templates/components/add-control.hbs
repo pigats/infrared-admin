@@ -1,7 +1,8 @@
-<ul>
+<ul class="control">
   <li>
     <label for="control-name">name</label>
-    {{input name='control-name' value=control.control.name}}
+    {{input name='control-name' value=control.control.name placeholder='volume'}}
+    <a href="#" {{action 'removeControl' control.control}}>Delete</a>
   </li>
   <li>
     <label for="control-type">type</label>
@@ -15,14 +16,16 @@
       {{/each}}
     </select>
     {{#if (eq control.typeId '1')}}
-      <ul>
+      <ul class="options">
         <li>
           options
-          <button {{action 'addSelectOption'}}>Add</button>
           <ul>
             {{#each selectOptions as |selectOption|}}
               <li>{{input value=selectOption.value submit=(action 'saveSelectOption')}}</li>
             {{/each}} 
+            <li>
+              <button {{action 'addSelectOption'}}>Add option</button>
+            </li>
           </ul>
         </li>
       </ul>

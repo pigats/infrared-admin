@@ -15,6 +15,7 @@ export default Ember.Route.extend({
                 controller.set('typeId', model.device.get('type.id'));
             });
         } else {
+            controller.set('typeId', model.device.get('type.id'));
             this._super(...arguments);
         }
     }
