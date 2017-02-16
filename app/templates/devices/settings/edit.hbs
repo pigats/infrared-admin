@@ -1,11 +1,19 @@
 <h1>
-  {{#link-to 'devices.index' class='device-list-back-link' title='back to devices'}}&mapstoleft;{{/link-to}}
   {{model.name}}
+  {{#if model.updating}}
+    <i class="spinner"></i>
+  {{/if}}
 </h1>
 
 <ul class="device-details">
-  <li>ip: {{model.ip}}</li>
-  <li>type: {{model.type.name}}</li>
+  <li>
+    ip: {{model.ip}}
+    ({{#link-to 'devices.edit' model}}edit device{{/link-to}})
+  </li>
+  <li>
+    type: {{model.type.name}} 
+    ({{#link-to 'device-types.edit' model.type}}edit controls{{/link-to}})
+  </li>
 </ul>
 
 <form {{action 'update' on='change'}}>
@@ -23,3 +31,8 @@
   {{/each}}
   </ul>
 </form>
+
+<p>Changes are automatically saved.</p>
+
+{{#link-to 'devices.index'}}Back to devices{{/link-to}}
+

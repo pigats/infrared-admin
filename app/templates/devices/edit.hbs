@@ -8,7 +8,7 @@
     </li>
     <li>
       <label for="type">type</label>
-      <select onchange={{action (mut typeId) value="target.value"}}>
+      <select onchange={{action (mut typeId) value="target.value"}} disabled>
         {{#each model.types as |type|}}
           {{#if (eq type.id model.device.type.id)}}
             <option value="{{type.id}}" selected> {{type.name}} </option>
