@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 
     actions: {
         willTransition() {
-            if(!this.currentModel.device.get('isSaving')) {
+            if(this.currentModel.device.get('isNew') && !this.currentModel.device.get('isSaving')) {
                 this.currentModel.device.destroyRecord().then(() => this._super(...arguments));
             } else {
                 this._super(...arguments);
