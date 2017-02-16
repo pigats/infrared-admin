@@ -1,0 +1,18 @@
+<ul>
+  <li>
+    <label for="control-name">name</label>
+    {{input name='control-name' value=control.control.name}}
+  </li>
+  <li>
+    <label for="control-type">type</label>
+    <select name="control-type" onchange={{action (mut control.typeId) value='target.value'}}>
+      {{#each controlTypes as |type|}}
+        {{#if (eq type.id control.typeId)}}
+          <option value="{{type.id}}" selected>{{type.name}}</option>
+        {{else}}
+          <option value="{{type.id}}">{{type.name}}</option>
+        {{/if}}
+      {{/each}}
+    </select>
+  </li>
+</ul>

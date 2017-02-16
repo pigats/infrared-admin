@@ -1,0 +1,24 @@
+{{outlet}}
+
+<h1>Create device type</h1>
+
+<form {{action 'create' on='submit'}}>
+  <ul>
+    <li>
+      <label for="name">name</label>
+      {{input name='name' value=model.name}}
+    </li>
+    <li>
+      controls
+      <button {{action 'addControl'}}>Add</button>
+      <ul>
+        {{#each controls as |control|}}
+          <li>
+            {{add-control control=control}}
+          </li>
+        {{/each}}
+      </ul>
+    </li>
+  </ul>
+  <input type="submit" />
+</form>
